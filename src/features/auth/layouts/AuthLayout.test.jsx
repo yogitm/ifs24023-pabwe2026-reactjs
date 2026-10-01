@@ -27,7 +27,7 @@ describe("AuthLayout", () => {
       },
     });
 
-    expect(screen.getByText("Delcom Todo")).toBeInTheDocument();
+    expect(screen.getByText("Delcom Lost & Found")).toBeInTheDocument();
     expect(screen.getByText("Masuk Akun")).toBeInTheDocument();
     expect(screen.getByText("Daftar Baru")).toBeInTheDocument();
   });

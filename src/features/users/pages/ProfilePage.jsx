@@ -164,9 +164,11 @@ function ProfilePage() {
           )}
 
           <label
+            htmlFor="profile-photo-file-input"
             data-testid="upload-profile-photo-btn"
             className="absolute bottom-0 right-0 p-2 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white shadow-md cursor-pointer transition-transform hover:scale-105"
             title="Ubah Foto Profil"
+            aria-label="Ubah Foto Profil"
           >
             {loadingPhoto ? (
               <IconLoader2 size={16} className="animate-spin" />
@@ -175,6 +177,8 @@ function ProfilePage() {
             )}
             <input
               type="file"
+              id="profile-photo-file-input"
+              aria-label="Unggah Foto Profil"
               data-testid="profile-photo-file-input"
               accept="image/*"
               onChange={handlePhotoUpload}
@@ -206,11 +210,12 @@ function ProfilePage() {
 
           <form onSubmit={handleUpdateProfile} className="space-y-4">
             <div>
-              <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+              <label htmlFor="profile-name-input" className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
                 Nama Lengkap
               </label>
               <input
                 type="text"
+                id="profile-name-input"
                 data-testid="profile-name-input"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -220,11 +225,12 @@ function ProfilePage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+              <label htmlFor="profile-email-input" className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
                 Alamat Email
               </label>
               <input
                 type="email"
+                id="profile-email-input"
                 data-testid="profile-email-input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -264,11 +270,12 @@ function ProfilePage() {
 
           <form onSubmit={handleUpdatePassword} className="space-y-4">
             <div>
-              <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+              <label htmlFor="current-password-input" className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
                 Kata Sandi Saat Ini
               </label>
               <input
                 type="password"
+                id="current-password-input"
                 data-testid="current-password-input"
                 value={oldPassword}
                 onChange={(e) => setOldPassword(e.target.value)}
@@ -279,11 +286,12 @@ function ProfilePage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+              <label htmlFor="new-password-input" className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
                 Kata Sandi Baru
               </label>
               <input
                 type="password"
+                id="new-password-input"
                 data-testid="new-password-input"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
@@ -294,11 +302,12 @@ function ProfilePage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+              <label htmlFor="confirm-password-input" className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
                 Ulangi Kata Sandi Baru
               </label>
               <input
                 type="password"
+                id="confirm-password-input"
                 data-testid="confirm-password-input"
                 value={newPasswordConfirmation}
                 onChange={(e) => setNewPasswordConfirmation(e.target.value)}

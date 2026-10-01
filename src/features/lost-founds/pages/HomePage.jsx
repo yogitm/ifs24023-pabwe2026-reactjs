@@ -204,10 +204,12 @@ function HomePage() {
         <div className="relative min-w-[240px]">
           <IconSearch
             size={16}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"
           />
           <input
             type="text"
+            id="search-input"
+            aria-label="Cari judul atau lokasi"
             data-testid="search-input"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -226,10 +228,10 @@ function HomePage() {
           <div className="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-500 flex items-center justify-center mb-4">
             <IconAlertCircle size={32} stroke={1.5} />
           </div>
-          <h3 className="text-base font-bold text-slate-800">
+          <h2 className="text-base font-bold text-slate-800">
             Tidak ada laporan yang ditemukan
-          </h3>
-          <p className="text-xs text-slate-500 max-w-sm mt-1">
+          </h2>
+          <p className="text-xs text-slate-600 max-w-sm mt-1">
             Belum ada barang yang dilaporkan pada kategori ini atau kata kunci tidak cocok.
           </p>
         </div>
@@ -290,14 +292,14 @@ function HomePage() {
 
                   {/* Card Body */}
                   <div className="p-5">
-                    <h3 className="text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">
+                    <h2 className="text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">
                       {item.title}
-                    </h3>
-                    <p className="text-xs text-slate-500 mt-2 line-clamp-2 leading-relaxed">
+                    </h2>
+                    <p className="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
                       {item.description}
                     </p>
 
-                    <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                    <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                       <div className="flex items-center gap-1.5">
                         <IconUser size={14} />
                         <span className="font-medium text-slate-600 truncate max-w-[120px]">
@@ -334,6 +336,7 @@ function HomePage() {
                         }}
                         className="p-2 rounded-xl bg-slate-50 hover:bg-amber-50 text-slate-600 hover:text-amber-600 transition-colors"
                         title="Ubah Data"
+                        aria-label="Ubah Data"
                       >
                         <IconPencil size={15} />
                       </button>
@@ -343,6 +346,7 @@ function HomePage() {
                         onClick={() => handleDelete(item.id)}
                         className="p-2 rounded-xl bg-slate-50 hover:bg-rose-50 text-slate-600 hover:text-rose-600 transition-colors"
                         title="Hapus Laporan"
+                        aria-label="Hapus Laporan"
                       >
                         <IconTrash size={15} />
                       </button>

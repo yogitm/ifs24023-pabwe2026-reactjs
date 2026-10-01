@@ -57,7 +57,7 @@ function LoginPage() {
   return (
     <form onSubmit={onSubmitHandler} className="space-y-4">
       <div>
-        <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+        <label htmlFor="login-email-input" className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
           Alamat Email
         </label>
         <div className="relative">
@@ -79,7 +79,7 @@ function LoginPage() {
       </div>
 
       <div>
-        <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+        <label htmlFor="login-password-input" className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
           Kata Sandi
         </label>
         <div className="relative">

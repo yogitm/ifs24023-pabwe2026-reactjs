@@ -76,6 +76,9 @@ function ChangeCoverModal({ show, onClose, lostFound }) {
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="change-cover-title"
       data-testid="change-cover-modal"
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs animate-in fade-in duration-200"
     >
@@ -88,12 +91,13 @@ function ChangeCoverModal({ show, onClose, lostFound }) {
             <div className="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center">
               <IconPhotoUp size={18} stroke={2.5} />
             </div>
-            <h3 className="text-base font-bold text-slate-800">Ubah Cover Laporan</h3>
+            <h3 id="change-cover-title" className="text-base font-bold text-slate-800">Ubah Cover Laporan</h3>
           </div>
           <button
             type="button"
             data-testid="close-cover-modal-btn"
             onClick={onClose}
+            aria-label="Tutup Dialog"
             className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
           >
             <IconX size={18} />
@@ -125,18 +129,20 @@ function ChangeCoverModal({ show, onClose, lostFound }) {
               </div>
             )}
 
-            <label className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-semibold cursor-pointer transition-colors">
+            <label htmlFor="cover-file-input" className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-semibold cursor-pointer transition-colors">
               <IconUpload size={18} />
               <span>{fileCover ? fileCover.name : "Pilih Berkas Foto Baru"}</span>
               <input
                 type="file"
+                id="cover-file-input"
+                aria-label="Pilih Berkas Foto Baru"
                 data-testid="cover-file-input"
                 accept="image/jpeg,image/png,image/jpg"
                 onChange={handleFileChange}
                 className="hidden"
               />
             </label>
-            <p className="text-[11px] text-slate-400 mt-2 text-center">
+            <p className="text-[11px] text-slate-500 mt-2 text-center">
               Format yang didukung: JPG, JPEG, PNG (Maks. 1MB)
             </p>
           </div>

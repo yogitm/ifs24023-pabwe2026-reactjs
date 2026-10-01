@@ -89,6 +89,9 @@ function ChangeModal({ show, onClose, lostFoundId }) {
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="edit-lost-found-title"
       data-testid="edit-lost-found-modal"
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs animate-in fade-in duration-200"
     >
@@ -101,7 +104,7 @@ function ChangeModal({ show, onClose, lostFoundId }) {
             <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center">
               <IconEdit size={18} stroke={2.5} />
             </div>
-            <h3 className="text-base font-bold text-slate-800">
+            <h3 id="edit-lost-found-title" className="text-base font-bold text-slate-800">
               Ubah Data Laporan
             </h3>
           </div>
@@ -109,6 +112,7 @@ function ChangeModal({ show, onClose, lostFoundId }) {
             type="button"
             data-testid="close-change-modal-btn"
             onClick={onClose}
+            aria-label="Tutup Dialog"
             className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
           >
             <IconX size={18} />
@@ -149,11 +153,12 @@ function ChangeModal({ show, onClose, lostFoundId }) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1.5">
+            <label htmlFor="change-lost-found-title-input" className="block text-sm font-semibold text-slate-700 mb-1.5">
               Judul Barang / Laporan <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
+              id="change-lost-found-title-input"
               data-testid="change-lost-found-title-input"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -162,10 +167,11 @@ function ChangeModal({ show, onClose, lostFoundId }) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1.5">
+            <label htmlFor="change-lost-found-desc-input" className="block text-sm font-semibold text-slate-700 mb-1.5">
               Deskripsi &amp; Lokasi Terakhir <span className="text-red-500">*</span>
             </label>
             <textarea
+              id="change-lost-found-desc-input"
               data-testid="change-lost-found-desc-input"
               value={description}
               onChange={(e) => setDescription(e.target.value)}

@@ -32,15 +32,15 @@ function AuthLayout() {
   const isLoginActive = location.pathname === "/auth/login";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <main role="main" className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
         <div className="inline-flex w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-600 to-sky-500 items-center justify-center text-white shadow-xl shadow-indigo-500/25 mb-3">
           <IconSearch size={32} stroke={2.5} />
         </div>
-        <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
           Delcom Lost &amp; Found
-        </h2>
-        <p className="mt-1 text-sm text-slate-500">
+        </h1>
+        <p className="mt-1 text-sm text-slate-600">
           Aplikasi Pelaporan Barang Hilang &amp; Temuan Modern
         </p>
       </div>
@@ -48,7 +48,7 @@ function AuthLayout() {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4 sm:px-0">
         <div className="bg-white py-8 px-6 sm:px-10 shadow-xl shadow-slate-200/50 rounded-3xl border border-slate-100">
           {/* Tabs */}
-          <div className="flex rounded-2xl bg-slate-100 p-1 mb-6">
+          <nav aria-label="Navigasi Autentikasi" className="flex rounded-2xl bg-slate-100 p-1 mb-6">
             <NavLink
               to="/auth/login"
               className={`flex-1 py-2 text-center text-sm font-semibold rounded-xl transition-all ${
@@ -69,12 +69,12 @@ function AuthLayout() {
             >
               Daftar Baru
             </NavLink>
-          </div>
+          </nav>
 
           <Outlet />
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

@@ -64,6 +64,9 @@ function AddModal({ show, onClose }) {
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="add-lost-found-title"
       data-testid="add-lost-found-modal"
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs animate-in fade-in duration-200"
     >
@@ -76,7 +79,7 @@ function AddModal({ show, onClose }) {
             <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center">
               <IconPlus size={18} stroke={2.5} />
             </div>
-            <h3 className="text-base font-bold text-slate-800">
+            <h3 id="add-lost-found-title" className="text-base font-bold text-slate-800">
               Buat Laporan Baru
             </h3>
           </div>
@@ -84,6 +87,7 @@ function AddModal({ show, onClose }) {
             type="button"
             data-testid="close-add-modal-btn"
             onClick={onClose}
+            aria-label="Tutup Dialog"
             className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
           >
             <IconX size={18} />
@@ -124,11 +128,12 @@ function AddModal({ show, onClose }) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1.5">
+            <label htmlFor="add-lost-found-title-input" className="block text-sm font-semibold text-slate-700 mb-1.5">
               Judul Barang / Laporan <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
+              id="add-lost-found-title-input"
               data-testid="add-lost-found-title-input"
               value={title}
               onChange={changeTitle}
@@ -138,10 +143,11 @@ function AddModal({ show, onClose }) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1.5">
+            <label htmlFor="add-lost-found-desc-input" className="block text-sm font-semibold text-slate-700 mb-1.5">
               Deskripsi &amp; Lokasi Terakhir <span className="text-red-500">*</span>
             </label>
             <textarea
+              id="add-lost-found-desc-input"
               data-testid="add-lost-found-desc-input"
               value={description}
               onChange={changeDescription}

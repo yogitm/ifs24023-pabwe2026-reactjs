@@ -40,6 +40,10 @@ function HomePage() {
   const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
+    document.title = "Beranda - Delcom Lost & Found";
+  }, []);
+
+  useEffect(() => {
     let isMounted = true;
     setLoading(true);
 
@@ -128,7 +132,7 @@ function HomePage() {
             {totalCount}
           </div>
           <div>
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <p className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
               Total Laporan
             </p>
             <p className="text-xl font-bold text-slate-900">{totalCount}</p>
@@ -140,7 +144,7 @@ function HomePage() {
             {lostCount}
           </div>
           <div>
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <p className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
               Barang Hilang
             </p>
             <p className="text-xl font-bold text-rose-700">{lostCount}</p>
@@ -152,7 +156,7 @@ function HomePage() {
             {foundCount}
           </div>
           <div>
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <p className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
               Barang Temuan
             </p>
             <p className="text-xl font-bold text-teal-700">{foundCount}</p>
@@ -164,7 +168,7 @@ function HomePage() {
             {completedCount}
           </div>
           <div>
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <p className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
               Selesai Dikembalikan
             </p>
             <p className="text-xl font-bold text-emerald-700">{completedCount}</p>
@@ -175,7 +179,8 @@ function HomePage() {
       {/* Filter and Search Bar */}
       <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-xs">
         {/* Filter Pills */}
-        <div className="flex flex-wrap items-center gap-1.5">
+        <fieldset className="flex flex-wrap items-center gap-1.5 border-none p-0 m-0">
+          <legend className="sr-only">Filter Berdasarkan Kategori Laporan</legend>
           {[
             { id: "all", label: "Semua" },
             { id: "lost", label: "Barang Hilang" },
@@ -198,12 +203,16 @@ function HomePage() {
               {tab.label}
             </button>
           ))}
-        </div>
+        </fieldset>
 
         {/* Search Input */}
         <div className="relative min-w-[240px]">
+          <label htmlFor="search-input" className="sr-only">
+            Cari judul atau lokasi
+          </label>
           <IconSearch
             size={16}
+            aria-hidden="true"
             className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"
           />
           <input
@@ -318,10 +327,11 @@ function HomePage() {
                 <div className="px-5 pb-5 pt-0 flex items-center justify-between gap-2">
                   <Link
                     to={`/lost-founds/${item.id}`}
+                    aria-label={`Lihat detail laporan ${item.title}`}
                     data-testid={`view-detail-btn-${item.id}`}
                     className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-slate-50 hover:bg-indigo-50 text-slate-700 hover:text-indigo-600 text-xs font-semibold transition-colors"
                   >
-                    <IconEye size={15} />
+                    <IconEye size={15} aria-hidden="true" />
                     <span>Detail</span>
                   </Link>
 

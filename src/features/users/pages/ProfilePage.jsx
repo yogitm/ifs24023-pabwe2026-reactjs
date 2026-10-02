@@ -41,6 +41,10 @@ function ProfilePage() {
   const [loadingPassword, setLoadingPassword] = useState(false);
 
   useEffect(() => {
+    document.title = "Profil Pengguna - Delcom Lost & Found";
+  }, []);
+
+  useEffect(() => {
     if (profile) {
       setName(profile.name || "");
       setEmail(profile.email || "");
@@ -219,6 +223,7 @@ function ProfilePage() {
                 data-testid="profile-name-input"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                autoComplete="name"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
                 required
               />
@@ -234,6 +239,7 @@ function ProfilePage() {
                 data-testid="profile-email-input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
                 required
               />
@@ -279,6 +285,7 @@ function ProfilePage() {
                 data-testid="current-password-input"
                 value={oldPassword}
                 onChange={(e) => setOldPassword(e.target.value)}
+                autoComplete="current-password"
                 placeholder="••••••"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
                 required
@@ -295,6 +302,7 @@ function ProfilePage() {
                 data-testid="new-password-input"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
+                autoComplete="new-password"
                 placeholder="Minimal 6 karakter"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
                 required
@@ -311,6 +319,7 @@ function ProfilePage() {
                 data-testid="confirm-password-input"
                 value={newPasswordConfirmation}
                 onChange={(e) => setNewPasswordConfirmation(e.target.value)}
+                autoComplete="new-password"
                 placeholder="Konfirmasi kata sandi"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
                 required

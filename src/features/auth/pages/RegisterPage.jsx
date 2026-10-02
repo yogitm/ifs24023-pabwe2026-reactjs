@@ -43,8 +43,13 @@ function RegisterPage() {
     }
   }
 
+  useEffect(() => {
+    document.title = "Daftar Akun Baru - Delcom Lost & Found";
+  }, []);
+
   return (
     <form onSubmit={onSubmitHandler} className="space-y-4">
+      <h2 className="sr-only">Form Pendaftaran Akun Baru</h2>
       <div>
         <label htmlFor="register-name-input" className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
           Nama Lengkap
@@ -52,6 +57,7 @@ function RegisterPage() {
         <div className="relative">
           <IconUser
             size={18}
+            aria-hidden="true"
             className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
           />
           <input
@@ -60,6 +66,7 @@ function RegisterPage() {
             data-testid="register-name-input"
             value={name}
             onChange={onChangeName}
+            autoComplete="name"
             placeholder="Nama Lengkap Anda"
             className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
             required
@@ -74,6 +81,7 @@ function RegisterPage() {
         <div className="relative">
           <IconMail
             size={18}
+            aria-hidden="true"
             className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
           />
           <input
@@ -82,6 +90,7 @@ function RegisterPage() {
             data-testid="register-email-input"
             value={email}
             onChange={onChangeEmail}
+            autoComplete="email"
             placeholder="nama@email.com"
             className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
             required
@@ -96,6 +105,7 @@ function RegisterPage() {
         <div className="relative">
           <IconLock
             size={18}
+            aria-hidden="true"
             className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
           />
           <input
@@ -104,6 +114,7 @@ function RegisterPage() {
             data-testid="register-password-input"
             value={password}
             onChange={onChangePassword}
+            autoComplete="new-password"
             placeholder="Minimal 6 karakter"
             className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
             required

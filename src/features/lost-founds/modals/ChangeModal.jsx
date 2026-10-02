@@ -102,7 +102,7 @@ function ChangeModal({ show, onClose, lostFoundId }) {
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/70">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center">
-              <IconEdit size={18} stroke={2.5} />
+              <IconEdit size={18} stroke={2.5} aria-hidden="true" />
             </div>
             <h3 id="edit-lost-found-title" className="text-base font-bold text-slate-800">
               Ubah Data Laporan
@@ -115,15 +115,15 @@ function ChangeModal({ show, onClose, lostFoundId }) {
             aria-label="Tutup Dialog"
             className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
           >
-            <IconX size={18} />
+            <IconX size={18} aria-hidden="true" />
           </button>
         </div>
 
         <form onSubmit={handleSave} className="p-6 space-y-4">
-          <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1.5">
+          <fieldset>
+            <legend className="block text-sm font-semibold text-slate-700 mb-1.5">
               Jenis Laporan
-            </label>
+            </legend>
             <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
@@ -150,7 +150,7 @@ function ChangeModal({ show, onClose, lostFoundId }) {
                 ✨ Barang Temuan (Found)
               </button>
             </div>
-          </div>
+          </fieldset>
 
           <div>
             <label htmlFor="change-lost-found-title-input" className="block text-sm font-semibold text-slate-700 mb-1.5">
@@ -182,9 +182,10 @@ function ChangeModal({ show, onClose, lostFoundId }) {
 
           {/* Toggle Selesai / Completed */}
           <div className="pt-2">
-            <label className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+            <label htmlFor="change-is-completed-checkbox" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
               <input
                 type="checkbox"
+                id="change-is-completed-checkbox"
                 data-testid="change-is-completed-checkbox"
                 checked={isCompleted}
                 onChange={(e) => setIsCompleted(e.target.checked)}
@@ -217,7 +218,7 @@ function ChangeModal({ show, onClose, lostFoundId }) {
               disabled={loading}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-600 text-white text-sm font-semibold shadow-md shadow-amber-600/20 hover:bg-amber-700 transition-all disabled:opacity-50"
             >
-              {loading && <IconLoader2 size={16} className="animate-spin" />}
+              {loading && <IconLoader2 size={16} className="animate-spin" aria-hidden="true" />}
               <span>Simpan Perubahan</span>
             </button>
           </div>

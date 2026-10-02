@@ -35,11 +35,13 @@ function SidebarComponent({ isSidebarOpen, onCloseMobile }) {
         <div
           data-testid="sidebar-backdrop"
           onClick={onCloseMobile}
+          aria-hidden="true"
           className="fixed inset-0 z-30 bg-slate-900/40 backdrop-blur-xs md:hidden"
         />
       )}
 
       <aside
+        aria-label="Navigasi Samping"
         className={`fixed top-16 bottom-0 left-0 z-30 w-64 bg-white border-r border-slate-200/80 p-4 transition-transform duration-200 ease-in-out md:translate-x-0 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}

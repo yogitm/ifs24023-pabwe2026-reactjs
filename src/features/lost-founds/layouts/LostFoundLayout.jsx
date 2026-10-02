@@ -61,6 +61,13 @@ function LostFoundLayout() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-indigo-600 focus:text-white focus:top-0 focus:left-0 focus:rounded-b-xl focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+      >
+        Lewati ke konten utama
+      </a>
+
       <NavbarComponent
         profile={profile}
         handleLogout={handleLogout}
@@ -73,7 +80,7 @@ function LostFoundLayout() {
         onCloseMobile={() => setIsSidebarOpen(false)}
       />
 
-      <main className="pt-16 md:pl-64 transition-all">
+      <main id="main-content" className="pt-16 md:pl-64 transition-all">
         <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
           <Outlet />
         </div>

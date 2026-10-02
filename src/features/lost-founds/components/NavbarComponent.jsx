@@ -34,13 +34,14 @@ function NavbarComponent({ profile, handleLogout, onToggleSidebar, isSidebarOpen
             onClick={onToggleSidebar}
             className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors"
             aria-label="Toggle Navigation"
+            aria-expanded={isSidebarOpen}
           >
-            {isSidebarOpen ? <IconX size={20} /> : <IconMenu2 size={20} />}
+            {isSidebarOpen ? <IconX size={20} aria-hidden="true" /> : <IconMenu2 size={20} aria-hidden="true" />}
           </button>
 
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" aria-label="Beranda Delcom Lost & Found" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-              <IconSearch size={22} stroke={2.5} />
+              <IconSearch size={22} stroke={2.5} aria-hidden="true" />
             </div>
             <div>
               <span className="text-lg font-bold bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-800 bg-clip-text text-transparent">
@@ -56,16 +57,19 @@ function NavbarComponent({ profile, handleLogout, onToggleSidebar, isSidebarOpen
             type="button"
             data-testid="profile-dropdown-button"
             onClick={() => setDropdownOpen((prev) => !prev)}
+            aria-label="Menu profil pengguna"
+            aria-haspopup="true"
+            aria-expanded={dropdownOpen}
             className="flex items-center gap-3 p-1.5 pr-3 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
           >
             {profile?.photo ? (
               <img
                 src={profile.photo}
-                alt={profile.name}
+                alt={`Foto profil ${profile?.name || "pengguna"}`}
                 className="w-8 h-8 rounded-full object-cover border border-slate-200"
               />
             ) : (
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white flex items-center justify-center font-bold text-xs">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white flex items-center justify-center font-bold text-xs" aria-hidden="true">
                 {profile?.name?.charAt(0)?.toUpperCase() || "U"}
               </div>
             )}
@@ -73,12 +77,13 @@ function NavbarComponent({ profile, handleLogout, onToggleSidebar, isSidebarOpen
               <span className="text-sm font-semibold text-slate-800 leading-tight">
                 {profile?.name || "Pengguna"}
               </span>
-              <span className="text-xs text-slate-500 leading-tight">
+              <span className="text-xs text-slate-600 leading-tight">
                 {profile?.email || ""}
               </span>
             </div>
             <IconChevronDown
               size={16}
+              aria-hidden="true"
               className={`text-slate-400 transition-transform duration-200 ${
                 dropdownOpen ? "rotate-180" : ""
               }`}

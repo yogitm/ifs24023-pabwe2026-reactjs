@@ -89,7 +89,7 @@ function ChangeCoverModal({ show, onClose, lostFound }) {
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/70">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center">
-              <IconPhotoUp size={18} stroke={2.5} />
+              <IconPhotoUp size={18} stroke={2.5} aria-hidden="true" />
             </div>
             <h3 id="change-cover-title" className="text-base font-bold text-slate-800">Ubah Cover Laporan</h3>
           </div>
@@ -100,7 +100,7 @@ function ChangeCoverModal({ show, onClose, lostFound }) {
             aria-label="Tutup Dialog"
             className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
           >
-            <IconX size={18} />
+            <IconX size={18} aria-hidden="true" />
           </button>
         </div>
 
@@ -110,7 +110,7 @@ function ChangeCoverModal({ show, onClose, lostFound }) {
               <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-slate-200 bg-slate-100 mb-3">
                 <img
                   src={previewUrl}
-                  alt="Preview"
+                  alt="Pratinjau cover baru"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -118,19 +118,19 @@ function ChangeCoverModal({ show, onClose, lostFound }) {
               <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-slate-200 bg-slate-100 mb-3">
                 <img
                   src={lostFound.cover}
-                  alt="Current Cover"
+                  alt={`Cover saat ini untuk ${lostFound.title || "laporan"}`}
                   className="w-full h-full object-cover"
                 />
               </div>
             ) : (
               <div className="w-full aspect-video rounded-xl border-2 border-dashed border-slate-200 bg-slate-50 flex flex-col items-center justify-center text-slate-400 mb-3">
-                <IconPhotoUp size={40} stroke={1.5} className="mb-2 text-slate-300" />
+                <IconPhotoUp size={40} stroke={1.5} className="mb-2 text-slate-300" aria-hidden="true" />
                 <p className="text-xs">Belum ada cover terpilih</p>
               </div>
             )}
 
             <label htmlFor="cover-file-input" className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-semibold cursor-pointer transition-colors">
-              <IconUpload size={18} />
+              <IconUpload size={18} aria-hidden="true" />
               <span>{fileCover ? fileCover.name : "Pilih Berkas Foto Baru"}</span>
               <input
                 type="file"
@@ -163,7 +163,7 @@ function ChangeCoverModal({ show, onClose, lostFound }) {
               disabled={loading}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 text-white text-sm font-semibold shadow-md shadow-sky-600/20 hover:bg-sky-700 transition-all disabled:opacity-50"
             >
-              {loading && <IconLoader2 size={16} className="animate-spin" />}
+              {loading && <IconLoader2 size={16} className="animate-spin" aria-hidden="true" />}
               <span>Unggah Cover</span>
             </button>
           </div>

@@ -50,6 +50,14 @@ function DetailPage() {
   }, [isLostFound, lostFound, navigate, dispatch]);
 
   useEffect(() => {
+    if (lostFound?.title) {
+      document.title = `${lostFound.title} - Delcom Lost & Found`;
+    } else {
+      document.title = "Detail Laporan - Delcom Lost & Found";
+    }
+  }, [lostFound]);
+
+  useEffect(() => {
     if (isLostFoundDeleted) {
       dispatch(setIsLostFoundDeleteActionCreator(false));
       navigate("/");

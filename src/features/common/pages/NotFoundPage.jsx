@@ -1,15 +1,20 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { IconAlertTriangle, IconArrowLeft, IconHome } from "@tabler/icons-react";
 
 function NotFoundPage() {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = "404 - Halaman Tidak Ditemukan | Delcom Lost & Found";
+  }, []);
+
   return (
     <main role="main" className="min-h-screen bg-slate-50 flex items-center justify-center p-4 sm:p-6 lg:p-8">
       <div className="max-w-md w-full text-center">
         {/* Decorative Badge */}
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-indigo-50 text-indigo-600 mb-6 shadow-sm ring-8 ring-indigo-50/50 animate-bounce duration-1000">
-          <IconAlertTriangle size={40} stroke={2} />
+          <IconAlertTriangle size={40} stroke={2} aria-hidden="true" />
         </div>
 
         {/* Status Code & Headings */}
@@ -31,7 +36,7 @@ function NotFoundPage() {
             onClick={() => navigate(-1)}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-50 active:bg-slate-100 border border-slate-200 shadow-xs transition-all cursor-pointer"
           >
-            <IconArrowLeft size={18} />
+            <IconArrowLeft size={18} aria-hidden="true" />
             <span>Kembali</span>
           </button>
           <button
@@ -40,7 +45,7 @@ function NotFoundPage() {
             onClick={() => navigate("/")}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 shadow-md shadow-indigo-600/25 transition-all cursor-pointer"
           >
-            <IconHome size={18} />
+            <IconHome size={18} aria-hidden="true" />
             <span>Ke Halaman Utama</span>
           </button>
         </div>

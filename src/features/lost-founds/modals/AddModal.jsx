@@ -77,7 +77,7 @@ function AddModal({ show, onClose }) {
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/70">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center">
-              <IconPlus size={18} stroke={2.5} />
+              <IconPlus size={18} stroke={2.5} aria-hidden="true" />
             </div>
             <h3 id="add-lost-found-title" className="text-base font-bold text-slate-800">
               Buat Laporan Baru
@@ -90,15 +90,15 @@ function AddModal({ show, onClose }) {
             aria-label="Tutup Dialog"
             className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
           >
-            <IconX size={18} />
+            <IconX size={18} aria-hidden="true" />
           </button>
         </div>
 
         <form onSubmit={handleSave} className="p-6 space-y-4">
-          <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1.5">
+          <fieldset>
+            <legend className="block text-sm font-semibold text-slate-700 mb-1.5">
               Jenis Laporan <span className="text-red-500">*</span>
-            </label>
+            </legend>
             <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
@@ -125,7 +125,7 @@ function AddModal({ show, onClose }) {
                 ✨ Barang Temuan (Found)
               </button>
             </div>
-          </div>
+          </fieldset>
 
           <div>
             <label htmlFor="add-lost-found-title-input" className="block text-sm font-semibold text-slate-700 mb-1.5">
@@ -173,7 +173,7 @@ function AddModal({ show, onClose }) {
               disabled={loading}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold shadow-md shadow-indigo-600/20 hover:bg-indigo-700 transition-all disabled:opacity-50"
             >
-              {loading && <IconLoader2 size={16} className="animate-spin" />}
+              {loading && <IconLoader2 size={16} className="animate-spin" aria-hidden="true" />}
               <span>Simpan Laporan</span>
             </button>
           </div>

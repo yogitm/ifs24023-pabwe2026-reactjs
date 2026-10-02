@@ -19,6 +19,10 @@ function UsersPage() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
+    document.title = "Semua Pengguna - Delcom Lost & Found";
+  }, []);
+
+  useEffect(() => {
     let isMounted = true;
     setLoadingUsers(true);
     Promise.resolve(dispatch(asyncSetUsers())).finally(() => {
@@ -55,8 +59,12 @@ function UsersPage() {
         {/* Header Search */}
         <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between gap-4">
           <div className="relative flex-1 max-w-md">
+            <label htmlFor="search-user-input" className="sr-only">
+              Cari pengguna berdasarkan nama atau email
+            </label>
             <IconSearch
               size={18}
+              aria-hidden="true"
               className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"
             />
             <input
